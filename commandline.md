@@ -15,7 +15,14 @@ tail -n +2 filename.txt
 ```
 awk -F "\t" '{print;}' knownGene.txt
 ```
-
+```
+awk awk -F "\t" '{
+if (FNR==1){
+    next
+};
+tot = tot + $5-$4};
+END {print tot;}' knownGene.txt | head
+```
 
 ## Compressing and decompressing files
 
